@@ -1,0 +1,78 @@
+@import url(chrome/more-compact-tabs.css);
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap");
+/* @font-face {
+  font-family: "Geist";
+  src: url("X:\Art\Fonts\Geist\Geist\GeistVariableVF.ttf"), format("truetype");
+  font-weight: normal;
+  font-style: normal;
+} */
+
+* {
+  /* font-family: "Geist", sans-serif; */
+  font-family: "IBM Plex Sans";
+}
+
+/* combined_favicon_and_tab_close_button  */
+.tab-content {
+  pointer-events: none;
+}
+.tab-icon-image:not([busy]) {
+  display: block !important;
+}
+/* :where(.tab-content:hover) .tab-icon-image,
+:where(.tab-content:hover) > .tab-icon-stack {
+  visibility: hidden;
+} */
+
+/* .tab-close-button {
+  order: -1;
+  display: flex !important;
+  position: relative;
+  margin-inline: -4px -20px !important;
+  padding-inline-start: 7px !important;
+  opacity: 0;
+  width: unset !important;
+  pointer-events: auto;
+}
+.tab-close-button:hover {
+  opacity: 1;
+} */
+
+.tabbrowser-tab[pinned] .tab-close-button {
+  display: none !important;
+}
+
+.tabbrowser-tab:hover .tab-close-button {
+  opacity: 1;
+}
+/* :where(.tabbrowser-tab:not([pinned]):hover) .tab-icon-stack,
+.tabbrowser-tab:not([pinned]):hover .tab-icon-image {
+  visibility: hidden;
+} */
+
+/* Remove tab closing button */
+.tab-close-button {
+  display: none !important;
+}
+
+/* Min Tab width */
+.tabbrowser-tab[fadein]:not([pinned]) {
+  min-width: 2px !important;
+}
+
+/* Make all tabs small except selected one */
+.tabbrowser-tab[fadein]:not([selected]):not([pinned]) {
+  max-width: 150px !important;
+}
+
+/* Make selected tabs to bigger */
+.tabbrowser-tab[selected][fadein]:not([pinned]) {
+  max-width: 200px !important;
+  min-width: 200px !important;
+}
+
+/* Tab Background fix */
+#TabsToolbar #firefox-view-button[open] > .toolbarbutton-icon,
+.tab-background:is([selected], [multiselected]) {
+  background-color: light-dark(rgb(255, 255, 255), rgb(43, 42, 51)) !important;
+}
